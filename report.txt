@@ -1,0 +1,120 @@
+$ C:/laragon/bin/python/python-3.10/python.exe main.py
+2024-11-17 03:40:04.830433: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-11-17 03:40:08.774770: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:From C:\laragon\bin\python\python-3.10\lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+First few rows of the dataset:
+   Unnamed: 0   book_id  ...    genre                                            summary
+0           0   3248537  ...  Fantasy   Drowned Wednesday is the first Trustee among ...
+1           1  27796919  ...  Fantasy   As the book opens, Jason awakens on a school ...
+2           2   3910776  ...  Fantasy   Cugel is easily persuaded by the merchant Fia...
+3           3   5969644  ...  Fantasy   The book opens with Herald-Mage Vanyel return...
+4           4   3173445  ...  Fantasy   Taran and Gurgi have returned to Caer Dallben...
+
+[5 rows x 5 columns]
+
+Columns after renaming:
+Index(['Unnamed: 0', 'book_id', 'title', 'category', 'description'], dtype='object')
+
+Number of samples per category before balancing:
+category
+Fantasy             500
+Science Fiction     500
+Crime Fiction       500
+Historical novel    500
+Horror              500
+Thriller            500
+Name: count, dtype: int64
+C:\Users\pc_su\Desktop\Polytech Paris-Saclay\APP5\AI\BookWise\main.py:63: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  balanced_data = data.groupby('category').apply(lambda x: x.sample(n=min(len(x), desired_num_books), random_state=42)).reset_index(drop=True)
+
+Number of samples per category after balancing:
+category
+Crime Fiction       500
+Fantasy             500
+Historical novel    500
+Horror              500
+Science Fiction     500
+Thriller            500
+Name: count, dtype: int64
+
+Training set size: 1800
+Validation set size: 600
+Testing set size: 600
+Historical novel    500
+Horror              500
+Science Fiction     500
+Thriller            500
+Name: count, dtype: int64
+
+Training set size: 1800
+Validation set size: 600
+Testing set size: 600
+Name: count, dtype: int64
+
+Training set size: 1800
+Validation set size: 600
+Testing set size: 600
+Validation set size: 600
+Testing set size: 600
+WARNING:tensorflow:From C:\laragon\bin\python\python-3.10\lib\site-packages\tf_keras\src\backend.py:873: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+2024-11-17 03:40:23.076846: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+All PyTorch model weights were used when initializing TFBertForSequenceClassification.
+
+WARNING:tensorflow:From C:\laragon\bin\python\python-3.10\lib\site-packages\tf_keras\src\backend.py:873: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+2024-11-17 03:40:23.076846: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+All PyTorch model weights were used when initializing TFBertForSequenceClassification.
+
+Some weights or buffers of the TF 2.0 model TFBertForSequenceClassification were not initialized from the PyTorch model and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.ompiler flags.
+All PyTorch model weights were used when initializing TFBertForSequenceClassification.
+
+Some weights or buffers of the TF 2.0 model TFBertForSequenceClassification were not initialized from the PyTorch model and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.Epoch 1/5
+WARNING:tensorflow:From C:\laragon\bin\python\python-3.10\lib\site-packages\tf_keras\src\utils\tf_utils.py:492: The name tf.ragged.RaggedTensorValue is deprecated. Please use tf.compat.v1.ragged.RaggedTensorValue instead.
+
+WARNING:tensorflow:From C:\laragon\bin\python\python-3.10\lib\site-packages\tf_keras\src\engine\base_layer_utils.py:384: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+225/225 [==============================] - ETA: 0s - loss: 1.2657 - accuracy: 0.5372
+Model saved at: book_category_classifier_epoch_1
+225/225 [==============================] - 973s 4s/step - loss: 1.2657 - accuracy: 0.5372 - val_loss: 1.0612 - val_accuracy: 0.6433
+Epoch 2/5
+225/225 [==============================] - ETA: 0s - loss: 0.7031 - accuracy: 0.7672
+Model saved at: book_category_classifier_epoch_2
+225/225 [==============================] - 872s 4s/step - loss: 0.7031 - accuracy: 0.7672 - val_loss: 0.8179 - val_accuracy: 0.7100
+Epoch 3/5
+225/225 [==============================] - ETA: 0s - loss: 0.3877 - accuracy: 0.8817  
+Model saved at: book_category_classifier_epoch_3
+225/225 [==============================] - 968s 4s/step - loss: 0.3877 - accuracy: 0.8817 - val_loss: 0.8744 - val_accuracy: 0.7233
+Epoch 4/5
+225/225 [==============================] - ETA: 0s - loss: 0.2072 - accuracy: 0.9350     
+Model saved at: book_category_classifier_epoch_4
+225/225 [==============================] - 953s 4s/step - loss: 0.2072 - accuracy: 0.9350 - val_loss: 1.0192 - val_accuracy: 0.7033
+Epoch 5/5
+225/225 [==============================] - ETA: 0s - loss: 0.1087 - accuracy: 0.9689   
+Model saved at: book_category_classifier_epoch_5
+225/225 [==============================] - 848s 4s/step - loss: 0.1087 - accuracy: 0.9689 - val_loss: 1.0719 - val_accuracy: 0.7050
+75/75 [==============================] - 99s 1s/step
+2024-11-17 04:59:38.340623: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+Classification Report:
+                  precision    recall  f1-score   support
+
+   Crime Fiction       0.56      0.82      0.66       100
+         Fantasy       0.66      0.65      0.66       100
+Historical novel       0.80      0.52      0.63       100
+          Horror       0.69      0.71      0.70       100
+ Science Fiction       0.82      0.74      0.78       100
+        Thriller       0.60      0.58      0.59       100
+
+        accuracy                           0.67       600
+       macro avg       0.69      0.67      0.67       600
+    weighted avg       0.69      0.67      0.67       600
+
+
+pc_su@Chouaib MINGW64 ~/Desktop/Polytech Paris-Saclay/APP5/AI/BookWise (main)
+$
