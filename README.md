@@ -83,11 +83,6 @@ Feel free to fork the repository and submit pull requests.
 
 ---
 
-## 📜 License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## 🙌 Acknowledgments
 - Thanks to all open-source contributors.
 - Special thanks to the [Polytech Paris-Saclay](https://www.polytech.universite-paris-saclay.fr/) team for their support.
