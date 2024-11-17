@@ -131,3 +131,12 @@ dist
 
 
 ./book_category_classifier
+# Ignore all files inside book_category_classifier_epoch_* directories
+book_category_classifier_epoch_*/config.json
+book_category_classifier_epoch_*/special_tokens_map.json
+book_category_classifier_epoch_*/tf_model.h5
+book_category_classifier_epoch_*/tokenizer_config.json
+book_category_classifier_epoch_*/vocab.txt
+
+# Ignore large model files
+best_model.keras
