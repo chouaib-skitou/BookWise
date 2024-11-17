@@ -7,7 +7,7 @@ from tqdm import tqdm
 # 1. Configuration
 # =========================
 
-API_KEY = 'AIzaSyD4efmVx7Ll46x_cBhDyoz3LwWS5Jo1MTI'  # Replace with your actual API key
+API_KEY = 'GOOGLE_API_KEY'  # Replace with your actual API key
 
 desired_categories = {
     'Science Fiction': ['Science Fiction', 'Sci-Fi', 'SF', 'Space Opera', 'Cyberpunk'],
